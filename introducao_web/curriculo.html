@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Curriculum - Kiver Vinicius</title>
+    
+    <style>
+        /*
+            <SELECTOR>{ <- Inicio
+                 CÓDIGO CSS
+            } <- Fim
+        */
+        body{
+            background: #ccc;
+        }
+        h1{
+            color: red;
+        }
+        hr{
+            border-color: red;
+            border-style: solid;
+            border-width: 3px;
+            /**/
+            border: 3px solid red;
+        }
+        h2{
+            color: blue;
+            text-decoration: underline;
+        }
+        /* SELETOR POR CLASSE */
+        .branco{
+            color: white;
+            text-decoration: overline;
+        }
+        .linha-meio{
+            text-decoration: line-through;
+        }
+        /* # */
+        #cabGraduacao{
+            border-bottom: 1px dashed red;
+        }
+        #dvPrincipal{
+            width: 78%;
+            height: auto;
+            margin: auto;
+            background: #fff;
+            padding: 50px;
+            padding-top: 5px;
+            /* 
+                RETIRA O ESPACAMENTO ADICIONAL DAS BORDAS, PADDING E MARGENS
+                E AS CALCULAM SOBRE O WIDTH OU HEIGHT;
+            */
+            box-sizing: border-box;
+            /*
+                ARRENDONDAMENTO DE BORDAS
+            */
+            border-radius: 10px;
+            border-top-left-radius: 50px;
+            border-bottom-right-radius: 100px;
+            /* PREFIX BROWSER*/
+           /* -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            -o-border-radius: 5px;*/
+            /* Sombra Projetada */
+            box-shadow: 0px 0px 10px #000;
+        }
+        
+        
+    </style>
+    
+</head>
+
+<body>
+    <div id="dvPrincipal">
+        <h1><i>Curriculum Vitae</i></h1>
+        <hr>
+
+        <h2>Informações Pessoais</h2>
+        <p>
+            <b>Nome: </b> <i><u>Kiver</u> Vinicius Teixeira</i>
+        </p>
+        <p>
+            <b>Idade: </b> <i>25 Anos</i>
+        </p>
+        <p>
+            <b>Telefone: </b> (65) 9613-9563
+        </p>
+
+        <hr>
+        <h2 class="branco">Escolaridade</h2>
+        <ul>
+            <li>
+                <h3 class="branco linha-meio" id="cabGraduacao">Graduação</h3>
+                <ul>
+                    <li>Tecnologia em Analise e Desenvolvimento de Software.</li>
+                    <li>Unic - 2010</li>
+                </ul>
+            </li>
+            <li>
+                <h3>Pós-Graduação</h3>
+                <ul>
+                    <li><h4>Sistemas de Informação.</h4> 
+                    </li>
+                    <li>Unigran - 2012</li>
+
+                    <li><h4>Didática do Ensino Superior.</h4> </li>
+                    <li>Unic - 2013</li>
+                </ul>
+            </li>
+        </ul>
+        <hr>
+        <h2>Trabalhos</h2>
+    </div>
+</body>
+
+</html>

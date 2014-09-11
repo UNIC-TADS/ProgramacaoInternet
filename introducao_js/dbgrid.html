@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Grid</title>
+    
+    <style>
+        table{
+            width: 80%;
+            margin: 20px auto;
+            border-top: 1px solid #000;
+            border-left: 1px solid #000;
+            border-bottom: 1px solid #000;
+            border-spacing: 0px;
+
+        }
+        table td, table th{
+            padding: 0px;
+            border-right: 1px solid #000;
+        }
+        table thead th{
+            background: #ccc;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <label for="txtNome">Nome:</label>
+        <input type="text" id="txtNome">
+        
+        <label for="txtTelefone">Telefone:</label>
+        <input type="text" id="txtTelefone">
+        
+        <label for="txtCpf">Cpf:</label>
+        <input type="text" id="txtCpf">
+        
+        <input type="button" value="+Add" id="btnAdd"/>
+    </form>
+    
+    <table id="grid">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Telefone:</th>
+                <th>Cpf:</th>
+            </tr>
+        </thead>
+        <tbody>
+        
+        </tbody>
+    </table>
+</body>
+<script type="text/javascript">
+    "use strict";
+    
+    var arrayAgenda = [];
+    var objetoPessoa = {
+        "nome" : "",
+        "telefone": 0,
+        "cpf": 0
+    };
+    
+    var btnAdd = document.querySelector("#btnAdd");
+    var corpoGrid = document.querySelector("#grid tbody");
+    var txtNome = document.querySelector("#txtNome");
+    var txtTelefone = document.querySelector("#txtTelefone");
+    var txtCpf = document.querySelector("#txtCpf");
+    
+    btnAdd.addEventListener("click", function(){
+        if((txtNome.value == "") || (txtTelefone.value == "")){
+            alert("Nome ou Telefone estão vazios");
+            return false;
+        } 
+        
+        arrayAgenda.push(addPessoa(txtNome.value,txtTelefone.value,txtCpf.value));
+        txtNome.value = "";
+        txtTelefone.value = "";
+        txtCpf.value = "";
+        txtNome.focus();
+        corpoGrid.innerHTML = gerarGridHTML();
+    });
+    
+    
+    function addPessoa($nome, $telefone, $cpf){
+        return {
+            "nome" : $nome,
+            "telefone": $telefone,
+            "cpf": $cpf
+        };
+    }
+    
+    function gerarGridHTML(){
+        var $html = "";
+        console.time("GRID");
+        for(var i=0; i<=arrayAgenda.length-1; i++){
+            var $row = arrayAgenda[i];
+            $html += "<tr>";
+            $html += "  <td>";
+            $html += $row.nome;
+            $html += "  </td>";
+            $html += "  <td>";
+            $html += $row.telefone;
+            $html += "  </td>";
+            $html += "  <td>";
+            $html += $row.cpf;
+            $html += "  </td>";
+            $html += "</tr>";
+        }
+        console.timeEnd("GRID");
+        return $html;
+    }
+
+    
+</script>
+</html>

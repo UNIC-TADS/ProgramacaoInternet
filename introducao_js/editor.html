@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Editor</title>
+</head>
+<body>
+    <textarea id="txtSource" cols="30" rows="10">
+        
+    </textarea>
+    <br>
+    <div id="dvPreview">
+        
+    </div>
+</body>
+<script type="text/javascript">
+    
+    "use strict";
+    var $txtSource = document.querySelector("#txtSource");
+    var $dvPreview = document.querySelector("#dvPreview");
+    
+    $txtSource.addEventListener("keypress", function(){
+        $dvPreview.innerHTML = $txtSource.value;
+    });
+    
+</script>
+</html>

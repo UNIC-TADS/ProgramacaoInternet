@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Query Selector</title>
+    <style>
+        body{
+            margin: 0px;
+            padding: 0px;
+            height: 100%;
+            font-size: 16px;
+            font-family: Verdana, Arial, sans-serif;
+        }
+        form{
+            width: 60%;
+            margin: auto;
+            background: #ccc;
+        }
+        form label{
+            width: 100%;
+            display: block;
+            font-weight: bold;
+        }
+        
+        form input{
+            padding: 10px;
+            border: 2px solid #7e7e7e;
+            font-size: 18px;
+            border-radius: 50px;
+            transition: all 0.5s;
+        }
+        
+        form input:focus{
+            outline: none;
+            background: #ffeda2;
+            border: 2px solid #ceb740;
+        }
+        
+        form input.invalid{
+            border: 2px solid red;
+        }
+    </style>
+</head>
+<body>
+    <form action="" method="get">
+       <!--  label[for="txtId"]{Id}+input#txtId -->
+        <label for="txtId">Id</label>
+        <input type="text" id="txtId">
+        
+        <label for="txtNome">Nome</label>
+        <input type="text" id="txtNome" class="required">
+        
+        <label for="txtCpf">Cpf</label>
+        <input type="text" id="txtCpf" class="required">
+        <br>
+        <input type="submit" value="Cadastrar"/>
+<!--        select>option{Opcao $}*10 -->
+    </form>
+</body>
+<script type="text/javascript">
+    var $form  = document.querySelector("form");
+    var $campos = document.querySelectorAll("form input.required");
+    
+    console.log(" form ");
+    console.log($form);
+    
+    console.info(" campos ");
+    console.info($campos);
+    
+    /*
+    }*/
+    
+    $form.onsubmit = function(){
+        console.clear();
+        for(var $i = 0; $i < $campos.length; $i++){
+            $campos[$i].classList.remove("invalid");
+            if($campos[$i].value == ""){
+                console.error(" O campo "+$campos[$i].id+" está vazio.");
+                $campos[$i].classList.add("invalid");
+                //$campos[$i].style.borderColor = "red";
+            }
+        }        
+        return false;
+    };
+    
+    for(var $i = 0; $i < $campos.length; $i++){
+        $campos[$i].addEventListener("blur", function(){
+            this.classList.remove("invalid");
+            if(this.value == ""){
+                console.error(" O campo "+this.id+" está vazio.");
+                this.classList.add("invalid");
+            }
+        });
+    }
+    
+    
+</script>
+</html>
