@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WebStorage</title>
+</head>
+<body>
+   
+   <input type="text" id="txtNome" placeholder="Insira seu nome">
+   
+   <input type="button" value="Gravar" id="btnGravar">
+   
+   <input type="button" value="Gravar Multiplos" id="btnGravarMultiplos">
+   
+   <ul id="nomesMultiplos"></ul>
+</body>
+<script type="text/javascript">
+    "use strict";
+    var $input = document.querySelector("#txtNome");
+    var $btnGravar = document.querySelector("#btnGravar");
+    var $btnGravarMultiplos = document.querySelector("#btnGravarMultiplos");
+    var $nomesMultiplos = document.querySelector("#nomesMultiplos");
+    var $arrayNomes = [];
+    
+    $btnGravar.addEventListener("click", function(){
+        localStorage.setItem("nome", $input.value);
+        alert("Nome gravado com sucesso");
+    });
+    
+    $btnGravarMultiplos.addEventListener("click", function(){
+        $arrayNomes.push($input.value);
+        localStorage.setItem("nomes", $arrayNomes.join(","));
+        location.reload();
+    });
+    
+    if(localStorage.getItem("nome") !== null){
+        $input.value = localStorage.getItem("nome");
+    }
+    
+    if(localStorage.getItem("nomes") !== null){
+        var $nomes = localStorage.getItem("nomes");
+        $arrayNomes = $nomes.split(",");
+        montarLista();
+    }
+    
+    
+    function montarLista(){
+        var $html = "";
+        for(var i=0; i < $arrayNomes.length; i++){
+            $html += "<li>"+$arrayNomes[i]+"</li>";
+        }
+        $nomesMultiplos.innerHTML = $html;
+    }
+</script>
+</html>
