@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Seletores</title>
+    <style>
+        div{
+            float: left;
+            background: #ccc;
+            width: 150px;
+            height: 150px;
+            margin: 5px;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+<script src="js/jquery-2.1.1.js"></script>
+<script>
+    //Executa quando a pagina estiver totalmente carregada
+    $(document).ready(function(){
+        
+        $("div").hover(function(){
+            
+            $(this).animate({
+                top: "-=10px", 
+                background: "#000", 
+            }, 500); 
+            
+        }, function(){
+            
+            $(this).animate({
+                top: "0px",
+                background: "#ccc",
+            }, 1000);
+            
+        });
+        
+        $("div").on("click", function(){
+            $(this).fadeOut();
+        });
+        
+    });
+</script>
+</html>

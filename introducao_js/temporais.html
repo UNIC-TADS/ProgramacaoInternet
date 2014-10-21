@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Funções Temporais</title>
+</head>
+<body>
+    <input type="text" id="hora">
+    <button id="btnAcionarHora">Acionar Hora(1 vz)</button>
+    <button id="btnAcionarRelogio">Acionar Hora(Sempre)</button>
+    <button id="btnPararRelogio">Parar Hora</button>
+</body>
+<script type="text/javascript">
+    "use strict";
+    var $hora = document.querySelector("#hora");
+    var $btnAcionarHora = document.querySelector("#btnAcionarHora");
+    var $btnAcionarRelogio = document.querySelector("#btnAcionarRelogio");
+    var $btnPararRelogio = document.querySelector("#btnPararRelogio");
+    var $intervalo = null;
+    
+    $btnAcionarHora.addEventListener("click", function(){
+        setTimeout(function(){
+            var hora = new Date();
+            alert(hora.getHours() +":"+ hora.getMinutes() +":"+ hora.getSeconds());
+        }, 1000);
+    });
+    
+    $btnAcionarRelogio.addEventListener("click", function(){
+        $intervalo = setInterval(function(){
+            var hora = new Date();
+            var horaFormatada = (hora.getHours() +":"+ 
+                                 hora.getMinutes() +":"+ 
+                                 hora.getSeconds());
+            $hora.value = horaFormatada;
+        }, 1000);
+    });
+    
+    $btnPararRelogio.addEventListener("click", function(){
+        clearInterval($intervalo);
+    });
+    
+</script>
+</html>

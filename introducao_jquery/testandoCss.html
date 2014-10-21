@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Teste Console</title>
+    <style>
+        body{
+            font-family: Verdana, Arial, sans-serif;
+        }
+        #dvTeste{
+            float: left;
+            background: #ccc;
+            width: 150px;
+            height: 150px;
+            margin: 5px;
+            position: relative;
+            transition: all 0.5s ease;
+        }
+        #dvCaixaControle{
+            position: fixed;
+            right: 10px;
+            top: 10px;
+        }
+        #txtBorderWidth{
+            width: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div id="dvTeste"></div>
+    <div id="dvCaixaControle">
+        <!-- WIDTH -->
+        <label for="txtWidth">Width</label>
+        <input type="text" id="txtWidth"/>
+        <br>
+        <!-- HEIGHT -->
+        <label for="txtHeight">Height</label>
+        <input type="text" id="txtHeight"/>
+        <br>
+        <!-- BORDER -->
+        <label>Border</label>
+        <input type="number" size="3" id="txtBorderWidth" min="0"/>
+        
+        <select name="cboBorderType" id="cboBorderType">
+            <option value="solid">solid</option>
+            <option value="dashed">dashed</option>
+            <option value="dotted">dotted</option>
+            <option value="inset">inset</option>
+            <option value="outset">outset</option>
+            <option value="double">double</option>
+            <option value="groove">groove</option>
+            <option value="ridge">ridge</option>
+        </select>
+        
+        <input type="color" id="colBorderColor"/>
+        <br>
+        <!-- BACKGROUND-COLOR -->
+        <label for="colBackgroundColor">Background Color</label>
+        <input type="color" id="colBackgroundColor"/>
+        
+        <input type="button" id="btnExecutar" value="Executar"/>
+    </div>
+</body>
+<script src="js/jquery-2.1.1.js"></script>
+<script type="text/javascript">
+   "use strict"; //DRY - Dont Repeat YourSelf
+    var dvTeste = $("#dvTeste");
+    var txtWidth = $("#txtWidth");
+    var txtHeight = $("#txtHeight");
+    var txtBorderWidth = $("#txtBorderWidth");
+    var cboBorderType = $("#cboBorderType");
+    var colBorderColor = $("#colBorderColor");
+    var colBackgroundColor = $("#colBackgroundColor");
+    var btnExecutar = $("#btnExecutar");
+    
+    var height = 0;
+    var width = 0;
+    var border = "";
+    var backgroundColor = "";
+    
+    btnExecutar.bind("click", function(){
+        
+        width = txtWidth.val();
+        if(width !== ""){
+            dvTeste.css("width", width);
+        }
+        
+        height = txtHeight.val();
+        if(height !== ""){
+            dvTeste.css("height", height); 
+        }
+        
+        backgroundColor = colBackgroundColor.val();
+        if(backgroundColor !== ""){
+            dvTeste.css("backgroundColor", backgroundColor); 
+        } 
+        
+        if(txtBorderWidth.val() !== "0"){
+            border = txtBorderWidth.val() + "px " +
+                     cboBorderType.val() + " "+ 
+                     colBorderColor.val();
+            dvTeste.css("border", border);
+        }
+         
+    });
+</script>
+</html>

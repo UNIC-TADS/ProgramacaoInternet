@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Par/Impar</title>
+</head>
+<body>
+    <form action="" id="frmParImpar">
+        <input type="text" id="txtValor" name="txtValor">
+        <input type="submit" value="resultado" id="btnResultado">
+        <input type="reset" value="limpar">
+    </form>
+</body>
+<script>
+    var txtValor = document.querySelector("#txtValor");
+    var frmParImpar = document.querySelector("#frmParImpar");
+    
+    frmParImpar.addEventListener("submit", function(e){
+        if(!validarNumero(txtValor.value)){
+            return false;
+            e.preventDefault();
+        }
+    });
+    
+    function validarNumero(valor){
+        if(valor == "" || isNaN(valor)){
+            alert("Valor inválido");
+            return false;
+        }
+        if(valor % 2 == 0){
+            alert("Par");
+        }else{
+            alert("Impar");
+        }
+        return true;
+    }
+</script>
+</html>

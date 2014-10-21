@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulários</title>
+    
+    <style>
+        .form{
+            background: #e8e8e8;
+            border: 1px solid #ccc;
+            width: 80%;
+            margin: auto;
+            margin-top: 50px;
+            padding: 50px;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        .form label{
+            display: inline-block;
+            padding: 5px;
+            font-size: 18px;
+            color: #000;
+            font-weight: bold;
+            float: left;
+            clear: both;
+        }
+        .form.labelTop label{
+            display: block;
+            float: none;
+        }
+        .form label span{
+            width: 110px;
+            display: inline-block;
+            text-align: right;
+            padding-right: 10px;
+        }
+        .form input,
+        .form select{
+            background: #a1a1ff;
+            border: 1px solid #7171ed;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        .form input:focus,
+        .form select:focus{
+            border: 1px solid red;
+            outline: none;
+        }
+        .form input[type=checkbox],
+        .form input[type=radio]{
+            width: 30px;
+            height: 30px;
+        }
+        .clear{
+            clear: both;
+        }
+        
+    </style>
+</head>
+<body>
+    <p>
+        
+        a,<br>b,<br>c
+    </p>
+    <p>
+        b
+    </p>
+   
+    <form action="" class="form">
+        <label>
+            <span>Texto</span>
+            <input type="text">
+        </label>
+        
+        <label>
+            <span>Opção</span>
+            <select>
+                <option value="">Opção 1</option>
+                <option value="">Opção 2</option>
+                <option value="">Opção 3</option>
+            </select>
+        </label>
+        
+        <label>
+            <span>Radio Button</span>
+            <input type="radio">
+        </label>
+        
+        <label>
+            <span>CheckBox</span>
+            <input type="checkbox">
+        </label>
+        
+        <label>
+            <span>Input File</span>
+            <input type="file">
+        </label>
+        
+        <label>
+            <span>DateTime</span>
+            <input type="date">
+        </label>
+        <br class="clear">
+    </form>
+    <form action="" class="form labelTop">
+        <label>Texto</label>
+        <input type="text">
+        <label>Opção</label>
+        <select>
+            <option value="">Opção 1</option>
+            <option value="">Opção 2</option>
+            <option value="">Opção 3</option>
+        </select>
+        <label>Radio Button</label>
+        <input type="radio">
+        <label>CheckBox</label>
+        <input type="checkbox">
+        <label>Input File</label>
+        <input type="file">
+        <label>DateTime</label>
+        <input type="date">
+        <br class="clear">
+    </form>
+</body>
+</html>

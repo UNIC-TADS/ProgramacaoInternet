@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Alfabeto</title>
+</head>
+<body>
+    <form action="" id="formulario">
+        <input type="text" id="txtValor" name="txtValor" maxlength="1">
+        <input type="submit" value="resultado" id="btnResultado">
+        <input type="reset" value="limpar">
+    </form>
+</body>
+<script>
+    var alfabeto = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var txtValor = document.querySelector("#txtValor");
+    var formulario = document.querySelector("#formulario");
+    
+    formulario.addEventListener("submit", function(){
+        if(txtValor.value.length > 1 || !isNaN(txtValor.value)){
+            alert("Informe somente uma letra");
+            return false;
+        }
+        //FORMA GENÉRICA
+        /*for(var i=0; i < alfabeto.length; i++){
+            if(txtValor.value.toUpperCase() == alfabeto[i]){
+                alert(i+1);
+            }
+        }*/   
+        var indice = alfabeto.indexOf(txtValor.value.toUpperCase());
+        
+        if(indice >= 0){
+            alert(indice+1);
+        }else{
+            alert("Não faz parte do alfabeto [PT-BR]")
+        }
+        
+    });
+    
+    
+</script>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="PT">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Calculadora</title>
+	<link href="calculadora.css" rel="stylesheet"/>
+</head>
+
+<body>
+	<!-- 
+		A melhor forma para criar os botões da calculadora,
+		é utilizando a tag TABLE devido ao seu formato já muito 
+		semelhante.
+	-->
+	<table class="calculadora">
+	    <tr>
+	        <td colspan="5">
+	            <input type="text" id="txtHistorico" readonly>
+	            <input type="text" id="txtValor">
+	        </td>
+	    </tr>
+		<tr>
+			<td>
+				<input type="button" class="botoes" value="7" id="btn7">
+			</td>
+			<td>
+				<input type="button" class="botoes" value="8" id="btn8">
+			</td>
+			<td>
+				<input type="button" class="botoes" value="9" id="btn9">
+			</td>
+			<td>
+				<input type="button" class="operacoes" value="/" id="btnDividir">
+			</td>
+			<td rowspan="4">
+				<input type="button" class="operacoes destaque" value="C" id="btnLimpar">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<input type="button" class="botoes" value="4" id="btn4">
+			</td>
+			<td>
+				<input type="button" class="botoes" value="5" id="btn5">
+			</td>
+			<td>
+				<input type="button" class="botoes" value="6" id="btn6">
+			</td>
+			<td>
+				<input type="button" class="operacoes" value="*" id="btnMultiplicar">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<input type="button" class="botoes" value="1" id="btn1">
+			</td>
+			<td>
+				<input type="button" class="botoes" value="2" id="btn2">
+			</td>
+			<td>
+				<input type="button" class="botoes" value="3" id="btn3">
+			</td>
+			<td>
+				<input type="button" class="operacoes" value="-" id="btnSubtrair">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<input type="button" class="botoes" value="0" id="btn0">
+			</td>
+			<td>
+				<input type="button" class="botoes" value="." id="btnPonto">
+			</td>
+			<td>
+				<input type="button" class="operacoes destaque" value="=" id="btnResultado">
+			</td>
+			<td>
+				<input type="button" class="operacoes" value="+" id="btnSomar">
+			</td>
+		</tr>
+		
+	</table>
+</body>
+<script src="jquery-2.1.1.min.js"></script>
+<script src="calculadora.js"></script>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercicio 1</title>
+    <style>
+        .block{
+            width: 200px;
+            height: 200px;
+            background: red;
+            position: absolute;
+        }
+        .blockBLue{
+            background: blue;
+        }
+        #blockTopLeft{
+            top: 0px;
+            left: 0px;
+        }
+        #blockTopRight{
+            right: 0px;
+            top: 0px;
+        }
+        #blockBottomLeft{
+            left: 0px;
+            bottom: 0px;
+        }
+        #blockBottomRight{
+            right: 0px;
+            bottom: 0px;
+        }
+        
+        #blockTopCenter{
+            top: 0px;
+            left: 50%;
+            margin-left: -100px;
+        }
+        #blockBottomCenter{
+            bottom: 0px;
+            left: 50%;
+            margin-left: -100px;
+        }
+        
+        #blockLeftCenter{
+            top: 50%;
+            left: 0px;
+            margin-top: -100px;
+        }
+        
+        #blockRightCenter{
+            top: 50%;
+            right: 0px;
+            margin-top: -100px;
+        }
+        
+        #blockCenter{
+            top: 50%;
+            left: 50%;
+            margin-top: -100px;    
+            margin-left: -100px;    
+            background: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="block" id="blockTopLeft"></div>
+    <div class="block" id="blockTopRight"></div>
+    <div class="block" id="blockBottomLeft"></div>
+    <div class="block" id="blockBottomRight"></div>
+    
+    <div class="block blockBLue" id="blockTopCenter"></div>
+    <div class="block blockBLue" id="blockLeftCenter"></div>
+    <div class="block blockBLue" id="blockRightCenter"></div>
+    <div class="block blockBLue" id="blockBottomCenter"></div>
+    
+    <div class="block" id="blockCenter"></div>
+    
+</body>
+</html>

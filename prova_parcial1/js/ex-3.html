@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Validador</title>
+    <style>
+        label{
+            display: block;
+            margin-bottom: 5px;
+        }
+        input{
+            border: 1px solid black;
+        }
+        .required{
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <form action="" class="form">
+        <label>
+            <span>Nome</span>
+            <input type="text" class="required" name="text" 
+                title="Nome">
+        </label>
+        <label>
+            <span>Sobrenome</span>
+            <input type="text" class="required" name="text" 
+                title="Sobrenome">
+        </label>
+        
+        <label>
+            <span>Carro</span>
+            <select class="required" name="select" title="Carro">
+                <option value="">Selecione</option>
+                <option value="1">Opção 1</option>
+                <option value="2">Opção 2</option>
+                <option value="3">Opção 3</option>
+            </select>
+        </label>
+        
+        <label>
+            <span>Sexo</span>
+            
+            <div id="radioGroup">
+               Masculino
+                <input type="radio" name="radiobutton" value="1" 
+                    title="sexo" class="required">
+                Feminino
+                <input type="radio" name="radiobutton" value="2" 
+                   title="sexo" class="required">
+                   Indefinido
+                <input type="radio" name="radiobutton" value="3" 
+                   title="sexo" class="required">
+            </div>
+            
+            <div id="radioGroup2">
+               Masculino
+                <input type="radio" name="radiobutton1" value="1" 
+                    title="sexo" class="required1">
+                Feminino
+                <input type="radio" name="radiobutton1" value="2" 
+                   title="sexo" class="required1">
+                   Indefinido
+                <input type="radio" name="radiobutton1" value="3" 
+                   title="sexo" class="required1">
+            </div>
+        </label>
+        
+        <label>
+            <span>CheckBox</span>
+            <input type="checkbox" class="required" title="Checkbox">
+        </label>
+        
+        <label>
+            <span>Input File</span>
+            <input type="file">
+        </label>
+        
+        <label>
+            <span>DateTime</span>
+            <input type="date">
+        </label>
+        <br class="clear">
+        <input type="submit">
+    </form>
+</body>
+<script src="jquery-1.9.1.min.js"></script>
+<script>
+    $(document).ready(function(){
+        
+        $("form").submit(function(){
+            return validar();
+        });
+    });
+    
+    function validar(){
+        var elementos = $(".required");
+        var elementosObrigatorios = [];
+        elementos.each(function(indice, elemento){
+            var elementoJquery = $(elemento);
+            if(elementoJquery.is(":checkbox")){
+                if(!elementoJquery.is(":checked")){
+                    elementosObrigatorios.push(elementoJquery);
+                }
+            }else{
+                if(elementoJquery.val() == ""){
+                    elementosObrigatorios.push(elementoJquery);
+                }
+            }
+        });
+        var mensagem = "";
+        for(var i=0; i < elementosObrigatorios.length; i++){
+            var el = elementosObrigatorios[i];
+            mensagem += "O campo '" + el.attr("title") + "' é obrigatório \n";
+        }
+        if(mensagem != ""){
+            alert(mensagem);
+            return false;
+        }
+        
+        return true;
+            
+    }
+</script>
+</html>

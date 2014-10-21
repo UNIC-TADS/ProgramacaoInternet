@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sorteio Alunos</title>
+</head>
+
+<body>
+    <button id="btnSortear">Sortear</button>
+</body>
+<script type="application/javascript">
+    var alunos = [{
+        id: 1,
+        nome: "Anderson",
+    }, {
+        id: 2,
+        nome: "Daisy",
+    }, {
+        id: 3,
+        nome: "Daniel",
+    }, {
+        id: 4,
+        nome: "Douglas",
+    }, {
+        id: 5,
+        nome: "Guilherme",
+    }, {
+        id: 6,
+        nome: "Gustavo",
+    }, {
+        id: 7,
+        nome: "Janderson",
+    }, {
+        id: 8,
+        nome: "Jeferson",
+    }, {
+        id: 9,
+        nome: "Jeison",
+    }, {
+        id: 10,
+        nome: "Lucas",
+    }, {
+        id: 11,
+        nome: "Maxuell",
+    }, {
+        id: 12,
+        nome: "Patrícia",
+    }];
+
+    var sorteado = 0;
+    var numerosJaSorteados = [];
+    var btnSortear = document.querySelector("#btnSortear");
+
+    btnSortear.addEventListener("click", function () {
+        debugger;
+        var continuar = true;
+        while(continuar){
+            sorteado = sortear()-1;
+            if(sorteado !== numerosJaSorteados.indexOf(sorteado)){
+                for (var i = 0, len = alunos.length; i < len; i++) {
+                    if (sorteado === alunos[i].id) {
+                        alert(alunos[i].nome);
+                        numerosJaSorteados.push(sorteado);
+                        continuar = false;
+                        break;
+                    }
+                }
+            }
+        }
+
+        console.log(numerosJaSorteados);
+    });
+    
+    function sortear(){
+        return parseInt(Math.random() * alunos.length);
+    }
+</script>
+
+</html>
